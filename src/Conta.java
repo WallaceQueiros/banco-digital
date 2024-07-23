@@ -1,7 +1,9 @@
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Conta implements IConta {
 
     private static final int AGENCIA_PADRAO = 1;
-    private static int  SEQUENCIAL = 1;
 
     protected int agencia;
     protected int numero;
@@ -11,7 +13,7 @@ public class Conta implements IConta {
     public Conta(Cliente cliente) {
         this.cliente = cliente;
         this.agencia = Conta.AGENCIA_PADRAO;
-        this.numero = Conta.SEQUENCIAL;
+        this.numero = ThreadLocalRandom.current().nextInt(10000, 100000);
     }
 
 
